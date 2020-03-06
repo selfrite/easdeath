@@ -1,1 +1,2 @@
-# easdeath
+# jsDiscord
+Nothing ~~
