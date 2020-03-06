@@ -1,101 +1,126 @@
 const config = require("./config.json");
 const Discord = require("discord.js");
 const fs = require("fs");
-const client = new Discord.Client({disableEveryone: true});
+const client = new Discord.Client({
+    disableEveryone: true
+});
 client.commands_fr = new Discord.Collection();
 
 
 
 
-    // Modules Français
-    fs.readdir("./modules/", (err, files) => {
-      console.log("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-Modules-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
-      if(err) console.log(err);
-      let jsfile = files.filter(f => f.split(".").pop() === "js");
-      if(jsfile.length <= 0){
+fs.readdir("./modules/", (err, files) => {
+    console.log("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-Modules-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    if (err) console.log(err);
+    let jsfile = files.filter(f => f.split(".").pop() === "js");
+    if (jsfile.length <= 0) {
         console.log(`Erreur de chargement d'un module`);
         return;
-      }
+    }
 
-      jsfile.forEach((f, i) =>{
+    jsfile.forEach((f, i) => {
         let props = require(`./modules/${f}`);
         console.log(`${f} a chargé`);
         client.commands_fr.set(props.help.name, props);
-      });
     });
+});
 
 
 
 
-/*
-
-    client.on('guildMemberAdd', member => {
-      const channel = member.guild.channels.find(ch => ch.id === '577889134031405059');
-      if (!channel) return;
-      channel.send(`${member}`).then(() => {
-        channel.bulkDelete(1)})
-    });
-
-*/
- client.on('ready', async () => {
-  console.log("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-BOT-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
-  console.log(`${client.user.username} !`);
-  const botmessage = "󠂪󠂪 󠂪󠂪 󠂪󠂪 󠂪󠂪 󠂪󠂪 󠂪󠂪 󠂪󠂪"
-/* setInterval(() => {
-	
-	 const salon = client.channels.get("410070418939183105");
-	salon.send(botmessage);	
-         salon.bulkDelete(1);
- },63000 );*/
-const poke = client.channels.get("423164462942519297");
-poke.send("?daily");	
-poke.send("?hourly");
-poke.send("?peche mega");	
-poke.send("?catch");	
-setInterval(() => {
-	salon.send("?catch");	
-         salon.bulkDelete(1);
- },903000);
-setInterval(() => {
-	poke.send("?hourly");	
-         poke.bulkDelete(1);
- },3605000); 
-setInterval(() => {
-	poke.send("?daily");	
-         poke.bulkDelete(1);
- },86405000); 
-  //client.user.setStatus('online')
- })
+client.on('ready', async () => {
+    console.log("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-BOT-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+    console.log(`                  ${client.user.username} est maintenant en ligne !                 `);
+    console.log("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+    client.user.setStatus("online");
 
 
 
 
+    client.user.setPresence({
+        game: {
+
+            name: `surveiller Close the door 🐛 | /help`,
+            type: "STREAMING",
+            url: "https://www.twitch.tv/solaryfortnite"
+        }
+
+    })
+
+
+
+})
+
+
+
+
+client.on("guildMemberAdd", member => {
+
+
+
+    var jour = Date.now() - member.user.createdAt.getTime()
+    if (jour < 2160000000) {
+        const defaultChannel = client.channels.find(channel => channel.id === "685121441137819678");
+        var precise = Math.round(jour / 86400000)
+        member.send(`Tu as été banni de "Close the door 🐛" car ton compte est trop récent (${precise} jours)`).catch(console.error).then(() => {
+
+            let embed = new Discord.RichEmbed()
+                .setDescription(`**Bannissement: ${member.user} ** \n**raison:** création compte < 20 jours \n**Âge du compte:** ${precise} jours `, true)
+                .setFooter("membre banni: " + member.user.id)
+            defaultChannel.send(embed)
+
+            member.ban({
+                reason: 'Compte trop récent <20 jours | Easdeath BOT'
+            });
+        })
+
+    } else {
+        const channelDiscussion = client.channels.find(channel => channel.id === "674301239088906260");
+        channelDiscussion.send(`[+] ${member.user}`)
+    }
+
+})
 
 client.on("message", async message => {
+    if (message.author.bot) return;
+    let messageArray = message.content.split(" ");
+    let args = messageArray.slice(0);
+    if (message.channel.type === "dm") return;
+    const swearWords = ["salop", "salope", "pute", "bander", "gueule", "ftg", "tg", "tgl", "connasse", "connard", "pd", "baiser", "suce", "baise", "sucer", "pute", "pedette", "tapette", "ntm", "bdp", "pute", "gigollo", "chatte", "bite", "penis", "vagin", "pubis", "couilles", "couilles", "niques", "nique", "mocheté", "mocheté", "gueule", "fdp", "ken", "baize", "race", "nique", "foutre", "bouffon", "bouffonne", "con", "conne", "putain", "ptn"];
+    if (swearWords.some(word => args.includes(word))) {
+        if (message.member.hasPermission("ADMINISTRATOR")) {
+            return
+        }
+        message.delete().catch(err => console.log("Error 404")).then(() => {
+            let embed = new Discord.RichEmbed()
+                .addField(`${message.author.tag}`, `Veuillez ne pas dire de [mots interdits](http://prntscr.com/o7ineb)`, true)
+            message.channel.send(embed)
+        });
+    }
 
-   
-  let prefix = config.prefix;
-  let messageArray = message.content.split(" ");
-  let cmd = messageArray[0];
-  let args = messageArray.slice(0);
+    if (message.content.startsWith(config.prefix)) {
 
 
-  
 
-    let commandFile = client.commands_fr.get(cmd.slice(prefix.length));
-    if (commandFile) commandFile.run(client, message, args)
-    if (message.author.id == 'undefined') return;
-  
-
- 
+        let prefix = config.prefix;
+        let messageArray = message.content.split(" ");
+        let cmd = messageArray[0];
+        let args = messageArray.slice(0);
 
 
 
 
-      
-      
-      
-    })
+        let commandFile = client.commands_fr.get(cmd.slice(prefix.length));
+        if (commandFile) {
+            commandFile.run(client, message, args)
+        }
+        if (message.author.id == 'undefined') return;
+
+
+
+
+    }
+})
 
 
 
