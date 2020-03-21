@@ -77,8 +77,9 @@ client.on("guildMemberAdd", member => {
     } else {
         const channelDiscussion = client.channels.find(channel => channel.id === "674301239088906260");
         channelDiscussion.send(`
-[+] ${member.user} → rôles : <#674297796924538900> - <#674950674865455104> - <#678499471155396608>
-                   → passions : <#674298848520437785> | → clans : <#685577866523705367>`)
+:plus: ${member.user}
+:arrow1: rôles : <#674297796924538900> - <#674950674865455104> - <#678499471155396608>
+:arrow1: clans : <#685577866523705367>`)
     }
 
 })
