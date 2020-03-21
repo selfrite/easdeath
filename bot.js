@@ -76,10 +76,12 @@ client.on("guildMemberAdd", member => {
 
     } else {
         const channelDiscussion = client.channels.find(channel => channel.id === "674301239088906260");
+        const plus = client.emojis.get("690957155406446593");
+        const arrow1 = client.emojis.get("690944740329521232");
         channelDiscussion.send(`
-:plus: ${member.user}
-:arrow1: rôles : <#674297796924538900> - <#674950674865455104> - <#678499471155396608>
-:arrow1: clans : <#685577866523705367>`)
+${plus} ${member.user}
+${arrow1} rôles : <#674297796924538900> - <#674950674865455104> - <#678499471155396608>
+${arrow1} clans : <#685577866523705367>`)
     }
 
 })
