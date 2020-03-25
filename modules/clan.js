@@ -15,7 +15,7 @@ message.delete()
 let roleDemon =  client.guilds.get('674294359595810846').roles.find('id', '685592801375027264')
 let roleAnge =   client.guilds.get('674294359595810846').roles.find('id', '685592803862118418')
 let roleElfe =   client.guilds.get('674294359595810846').roles.find('id', '685592806739279896')
-
+let roleVerif =  client.guilds.get('674294359595810846').roles.find('id', '685877909147484169')
 function aaaa()
 {
   message.reply("RIP, tu as déjà un clan, tu ne peux pas changer =(")
@@ -32,16 +32,19 @@ if(message.member.roles.has(roleElfe.id)) {return setTimeout(aaaa, 10)}
 if(demon<=ange && demon<=elfe){
   demon = demon+1;
   message.member.addRole(roleDemon)
+  message.member.removeRole(roleVerif)
   console.log(`${message.member} clan Nott`)
   message.reply("Vous êtes devenu(e) un Nott")
 } else if(ange<= demon && ange<= elfe){
   ange = ange+1;
   message.member.addRole(roleAnge)
+  message.member.removeRole(roleVerif)
   console.log(`${message.member} clan Hel`)
   message.reply("Vous êtes devenu(e) un Hel")
 } else if(elfe<=demon && elfe<=ange){
   elfe = elfe + 1;
   message.member.addRole(roleElfe)
+  message.member.removeRole(roleVerif)
   console.log(`${message.member} clan Odin`)
   message.reply("Vous êtes devenu(e) un Odin")}
 setTimeout(suiteTraitement, 5000)
