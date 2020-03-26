@@ -81,7 +81,7 @@ client.on("guildMemberAdd", member => {
         channelDiscussion.send(`
 ${plus} ${member.user}
 ${arrow1} rôles : <#674297796924538900> - <#674950674865455104> - <#678499471155396608>
-${arrow1} clans : <#685577866523705367>`)
+${arrow1} giveway : <#692343568248995842>`)
     }
 
 })
