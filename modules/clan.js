@@ -7,7 +7,7 @@ var ange = 0;
 var elfe = 0;  
 
 exports.run = async (client, message, args) => {
-  const defaultChannel = client.channels.find(channel => channel.id === "703660614886621215);
+  const defaultChannel = client.channels.find(channel => channel.id === "703660614886621215");
   if(message.channel != defaultChannel) return;
 var nombre = 0;
 message.delete()
