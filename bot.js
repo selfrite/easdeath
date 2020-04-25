@@ -40,7 +40,7 @@ client.on('ready', async () => {
     client.user.setPresence({
         game: {
 
-            name: `surveiller Close the door 🐛 | /help`,
+            name: `surveiller 🐦 Ravens VS eagles 🦅`,
             type: "STREAMING",
             url: "https://www.twitch.tv/solaryfortnite"
         }
@@ -60,9 +60,9 @@ client.on("guildMemberAdd", member => {
 
     var jour = Date.now() - member.user.createdAt.getTime()
     if (jour < 2160000000) {
-        const defaultChannel = client.channels.find(channel => channel.id === "685121441137819678");
+        const defaultChannel = client.channels.find(channel => channel.id === "703614272604733441");
         var precise = Math.round(jour / 86400000)
-        member.send(`Tu as été banni de "Close the door 🐛" car ton compte est trop récent (${precise} jours)`).catch(console.error).then(() => {
+        member.send(`Tu as été banni de "🐦 Ravens VS eagles 🦅" car ton compte est trop récent (${precise} jours)`).catch(console.error).then(() => {
 
             let embed = new Discord.RichEmbed()
                 .setDescription(`**Bannissement: ${member.user} ** \n**raison:** création compte < 20 jours \n**Âge du compte:** ${precise} jours `, true)
@@ -75,13 +75,12 @@ client.on("guildMemberAdd", member => {
         })
 
     } else {
-        const channelDiscussion = client.channels.find(channel => channel.id === "674301239088906260");
+        const channelDiscussion = client.channels.find(channel => channel.id === "703606528120193074");
         const plus = client.emojis.get("690957155406446593");
         const arrow1 = client.emojis.get("690944740329521232");
         channelDiscussion.send(`
 ${plus} ${member.user}
-${arrow1} rôles : <#674297796924538900> - <#674950674865455104> - <#678499471155396608>
-${arrow1} giveway : <#692343568248995842>`)
+${arrow1} rôles : <#703640104815820820> - <#703647334403276970>
     }
 
 })
