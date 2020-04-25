@@ -80,7 +80,7 @@ client.on("guildMemberAdd", member => {
         const arrow1 = client.emojis.get("690944740329521232");
         channelDiscussion.send(`
 ${plus} ${member.user}
-${arrow1} rôles : <#703640104815820820> - <#703647334403276970>
+${arrow1} rôles : <#703640104815820820> - <#703647334403276970>`)
     }
 
 })
