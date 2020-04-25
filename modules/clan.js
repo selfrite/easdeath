@@ -34,13 +34,13 @@ if(demon<=ange && demon<=elfe){
   message.member.addRole(roleDemon)
   message.member.removeRole(roleVerif)
   console.log(`${message.member} clan Nott`)
-  message.reply("Vous êtes devenu(e) un Nott")
+  message.reply("Vous êtes devenu(e) un Raven")
 } else if(ange<= demon && ange<= elfe){
   ange = ange+1;
   message.member.addRole(roleAnge)
   message.member.removeRole(roleVerif)
   console.log(`${message.member} clan Hel`)
-  message.reply("Vous êtes devenu(e) un Hel")
+  message.reply("Vous êtes devenu(e) un Eagle")
 }/* else if(elfe<=demon && elfe<=ange){
   elfe = elfe + 1;
   message.member.addRole(roleElfe)
