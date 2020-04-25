@@ -27,7 +27,7 @@ function aaaaa()
 }
 if(message.member.roles.has(roleDemon.id)) {return setTimeout(aaaa, 10)}
 if(message.member.roles.has(roleAnge.id)) {return setTimeout(aaaa, 10)}
-if(message.member.roles.has(roleElfe.id)) {return setTimeout(aaaa, 10)}
+//if(message.member.roles.has(roleElfe.id)) {return setTimeout(aaaa, 10)}
 
 if(demon<=ange && demon<=elfe){
   demon = demon+1;
