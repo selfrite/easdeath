@@ -12,10 +12,10 @@ exports.run = async (client, message, args) => {
 var nombre = 0;
 message.delete()
 //const id = message.guild.roles.find('name', '🌟|| Bot')
-let roleDemon =  client.guilds.get('703339395604021289').roles.find('id', '685592801375027264')
-let roleAnge =   client.guilds.get('703339395604021289').roles.find('id', '685592803862118418')
+let roleDemon =  client.guilds.get('703339395604021289').roles.find('id', '703357044891058206')
+let roleAnge =   client.guilds.get('703339395604021289').roles.find('id', '703357045461745714')
 //let roleElfe =   client.guilds.get('674294359595810846').roles.find('id', '685592806739279896')
-let roleVerif =  client.guilds.get('703339395604021289').roles.find('id', '685877909147484169')
+let roleVerif =  client.guilds.get('703339395604021289').roles.find('id', '703684849793368157')
 function aaaa()
 {
   message.reply("RIP, tu as déjà un clan, tu ne peux pas changer =(")
