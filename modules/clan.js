@@ -12,10 +12,10 @@ exports.run = async (client, message, args) => {
 var nombre = 0;
 message.delete()
 //const id = message.guild.roles.find('name', '🌟|| Bot')
-let roleDemon =  client.guilds.get('674294359595810846').roles.find('id', '685592801375027264')
-let roleAnge =   client.guilds.get('674294359595810846').roles.find('id', '685592803862118418')
-let roleElfe =   client.guilds.get('674294359595810846').roles.find('id', '685592806739279896')
-let roleVerif =  client.guilds.get('674294359595810846').roles.find('id', '685877909147484169')
+let roleDemon =  client.guilds.get('703357044891058206').roles.find('id', '685592801375027264')
+let roleAnge =   client.guilds.get('703357045461745714').roles.find('id', '685592803862118418')
+//let roleElfe =   client.guilds.get('674294359595810846').roles.find('id', '685592806739279896')
+let roleVerif =  client.guilds.get('703684849793368157').roles.find('id', '685877909147484169')
 function aaaa()
 {
   message.reply("RIP, tu as déjà un clan, tu ne peux pas changer =(")
@@ -41,12 +41,12 @@ if(demon<=ange && demon<=elfe){
   message.member.removeRole(roleVerif)
   console.log(`${message.member} clan Hel`)
   message.reply("Vous êtes devenu(e) un Hel")
-} else if(elfe<=demon && elfe<=ange){
+}/* else if(elfe<=demon && elfe<=ange){
   elfe = elfe + 1;
   message.member.addRole(roleElfe)
   message.member.removeRole(roleVerif)
   console.log(`${message.member} clan Odin`)
-  message.reply("Vous êtes devenu(e) un Odin")}
+  message.reply("Vous êtes devenu(e) un Odin")}*/
 setTimeout(suiteTraitement, 5000)
 function suiteTraitement()
 {
