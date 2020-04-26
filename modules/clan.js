@@ -29,14 +29,14 @@ if(message.member.roles.has(roleDemon.id)) {return setTimeout(aaaa, 10)}
 if(message.member.roles.has(roleAnge.id)) {return setTimeout(aaaa, 10)}
 //if(message.member.roles.has(roleElfe.id)) {return setTimeout(aaaa, 10)}
 
-if(demon<=ange && demon<=elfe){
+if(demon<=ange){
   demon = demon+1;
   message.member.addRole(roleDemon)
   message.member.removeRole(roleVerif)
   console.log(`${message.member} clan Nott`)
   message.reply("Vous êtes devenu(e) un Eagle")
-} else if(ange<= demon && ange<= elfe){
-  ange = ange+2;
+} else if(ange<= demon){
+  ange = ange+1;
   message.member.addRole(roleAnge)
   message.member.removeRole(roleVerif)
   console.log(`${message.member} clan Hel`)
